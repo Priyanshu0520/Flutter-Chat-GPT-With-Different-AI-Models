@@ -89,7 +89,8 @@ class BuildDisplayImage extends StatelessWidget {
     } else if (userImage.isNotEmpty) {
       return FileImage(File(userImage));
     } else {
-      return const AssetImage('assets/images/profile_pic.jpeg');
+      return const NetworkImage(
+          'https://i.pinimg.com/originals/0d/42/90/0d42905fc5e9d14fa032d8ea0282bf68.jpg');
     }
   }
 }

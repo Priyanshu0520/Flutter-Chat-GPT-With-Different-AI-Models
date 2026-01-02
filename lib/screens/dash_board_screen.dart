@@ -257,7 +257,8 @@ class _DashBoardScreenState extends State<DashBoardScreen>
                 backgroundColor: Colors.grey[200],
                 backgroundImage: _userImage.isNotEmpty
                     ? FileImage(File(_userImage))
-                    : const AssetImage('assets/images/profile_pic.jpeg')
+                    : const NetworkImage(
+                            'https://i.pinimg.com/originals/0d/42/90/0d42905fc5e9d14fa032d8ea0282bf68.jpg')
                         as ImageProvider,
               ),
             ),
