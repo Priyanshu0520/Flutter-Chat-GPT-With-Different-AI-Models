@@ -54,7 +54,6 @@
   <img src="assets/images/Simulator Screenshot - iPhone 17 - 2026-01-02 at 15.57.35.png" width="140" alt="Chat View">
   <img src="assets/images/Simulator Screenshot - iPhone 17 - 2026-01-02 at 15.57.38.png" width="140" alt="Input">
   <img src="assets/images/Simulator Screenshot - iPhone 17 - 2026-01-02 at 15.57.41.png" width="140" alt="Image">
-  <img src="assets/images/Simulator Screenshot - iPhone 17 - 2026-01-02 at 15.57.44.png" width="140" alt="Delete">
 </p>
 
 ---
