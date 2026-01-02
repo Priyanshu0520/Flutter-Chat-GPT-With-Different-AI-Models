@@ -77,24 +77,24 @@ class ChatHistoryWidget extends StatelessWidget {
                   end: Alignment.bottomRight,
                   colors: isDark
                       ? [
-                          Colors.white.withOpacity(0.1),
-                          Colors.white.withOpacity(0.05),
+                          const Color.fromRGBO(255, 255, 255, 0.1),
+                          const Color.fromRGBO(255, 255, 255, 0.05),
                         ]
                       : [
-                          Colors.white.withOpacity(0.7),
-                          Colors.white.withOpacity(0.5),
+                          const Color.fromRGBO(255, 255, 255, 0.7),
+                          const Color.fromRGBO(255, 255, 255, 0.5),
                         ],
                 ),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
                   color: isDark
-                      ? Colors.white.withOpacity(0.2)
-                      : primaryColor.withOpacity(0.3),
+                      ? const Color.fromRGBO(255, 255, 255, 0.2)
+                      : const Color.fromRGBO(174, 128, 72, 0.3),
                   width: 1.5,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: primaryColor.withOpacity(0.1),
+                    color: const Color.fromRGBO(174, 128, 72, 0.1),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -105,27 +105,33 @@ class ChatHistoryWidget extends StatelessWidget {
                 child: InkWell(
                   borderRadius: BorderRadius.circular(20),
                   onTap: () async {
-                    // Navigate to chat screen and load the chat history
                     final chatProvider = context.read<ChatProvider>();
+
+                    chatProvider.setCurrentIndex(newIndex: 1);
                     
-                    // Prepare chat room with existing chat
                     await chatProvider.prepareChatRoom(
                       isNewChat: false,
                       chatID: chat.chatId,
                     );
-                    
-                    // Navigate back to dashboard and switch to chat screen
+
                     if (context.mounted) {
-                      Navigator.pop(context); // Pop chat history screen
-                      chatProvider.setCurrentIndex(newIndex: 1);
-                      chatProvider.pageController.jumpToPage(1);
+                      Navigator.pop(context);
+                      
+                      await Future.delayed(const Duration(milliseconds: 100));
+                      
+                      if (chatProvider.pageController.hasClients) {
+                        await chatProvider.pageController.animateToPage(
+                          1,
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      }
                     }
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Row(
                       children: [
-                        // Leading Icon
                         Container(
                           padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
@@ -135,11 +141,11 @@ class ChatHistoryWidget extends StatelessWidget {
                               end: Alignment.bottomRight,
                             ),
                             borderRadius: BorderRadius.circular(16),
-                            boxShadow: [
-                              BoxShadow(
-                                color: primaryColor.withOpacity(0.3),
+                            boxShadow: const[
+                               BoxShadow(
+                                color:  Color.fromRGBO(174, 128, 72, 0.3),
                                 blurRadius: 8,
-                                offset: const Offset(0, 2),
+                                offset:  Offset(0, 2),
                               ),
                             ],
                           ),
@@ -181,11 +187,10 @@ class ChatHistoryWidget extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 12),
-                        // Trailing Icon
                         Container(
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                            color: primaryColor.withOpacity(0.2),
+                            color: const Color.fromRGBO(174, 128, 72, 0.2),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Icon(

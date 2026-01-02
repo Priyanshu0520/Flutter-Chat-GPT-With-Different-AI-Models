@@ -65,6 +65,8 @@ class ChatProvider extends ChangeNotifier {
 
   String setCurrentModel({required String newModel}) {
     _modelType = newModel;
+    _inChatMessages.clear();
+    _currentChatId = '';
     notifyListeners();
     return newModel;
   }

@@ -35,8 +35,8 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
             filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
             child: AppBar(
               backgroundColor: isDark
-                  ? Colors.black.withOpacity(0.3)
-                  : Colors.white.withOpacity(0.3),
+                  ? const Color.fromRGBO(0, 0, 0, 0.3)
+                  : const Color.fromRGBO(255, 255, 255, 0.3),
               elevation: 0,
               centerTitle: true,
               leading: IconButton(
@@ -51,13 +51,14 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        color: primaryColor.withOpacity(0.3),
+                        color: const Color.fromRGBO(174, 128, 72, 0.3),
                         blurRadius: 8,
                         offset: const Offset(0, 2),
                       ),
                     ],
                   ),
-                  child: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 18),
+                  child: const Icon(Icons.arrow_back_ios_new,
+                      color: Colors.white, size: 18),
                 ),
                 onPressed: () => Navigator.pop(context),
               ),
