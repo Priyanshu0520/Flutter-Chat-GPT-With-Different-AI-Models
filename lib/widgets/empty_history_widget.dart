@@ -7,7 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 class EmptyHistoryWidget extends StatelessWidget {
   const EmptyHistoryWidget({super.key});
 
-  // Bronze & Brown Color Scheme
   static const Color primaryColor = Color.fromARGB(255, 174, 128, 72);
   static const Color secondaryColor = Color.fromARGB(255, 168, 93, 58);
   static const Color accentColor = Color.fromARGB(255, 198, 153, 99);
@@ -19,17 +18,14 @@ class EmptyHistoryWidget extends StatelessWidget {
     return Center(
       child: GestureDetector(
         onTap: () async {
-          // Navigate to chat screen
           final chatProvider = context.read<ChatProvider>();
-          // Prepare chat room for new chat
           await chatProvider.prepareChatRoom(
             isNewChat: true,
             chatID: '',
           );
           
-          // Navigate back and switch to chat page
           if (context.mounted) {
-            Navigator.pop(context); // Pop chat history screen
+            Navigator.pop(context); 
             chatProvider.setCurrentIndex(newIndex: 1);
             chatProvider.pageController.jumpToPage(1);
           }

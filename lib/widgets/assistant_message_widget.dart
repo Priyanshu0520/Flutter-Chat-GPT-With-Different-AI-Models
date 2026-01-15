@@ -12,7 +12,6 @@ class AssistantMessageWidget extends StatelessWidget {
 
   final String message;
 
-  // Bronze & Brown Color Scheme
   static const Color primaryColor = Color.fromARGB(255, 174, 128, 72);
   static const Color secondaryColor = Color.fromARGB(255, 168, 93, 58);
   static const Color accentColor = Color.fromARGB(255, 198, 153, 99);

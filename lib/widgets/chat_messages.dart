@@ -20,7 +20,6 @@ class ChatMessages extends StatelessWidget {
       controller: scrollController,
       itemCount: chatProvider.inChatMessages.length,
       itemBuilder: (context, index) {
-        // compare with timeSent before showing the list
         final message = chatProvider.inChatMessages[index];
         return message.role.name == Role.user.name
             ? MyMessageWidget(message: message)

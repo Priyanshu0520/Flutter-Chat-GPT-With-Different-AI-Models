@@ -24,7 +24,6 @@ class GradientScaffold extends StatelessWidget {
               color: Color.fromRGBO(209, 233, 246, 1)
             ),
           ),
-          // Main content
           Column(
             children: [
               if (appBar != null) appBar!,
